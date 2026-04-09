@@ -13,6 +13,7 @@ import { z } from 'genkit';
 const GenerateNudgesInputSchema = z.object({
   commitments: z.array(z.string()).describe('An array of the user\'s action plan commitments.'),
   timeline: z.enum(['1 week', '2 weeks', '1 month']).describe('The user\'s chosen timeline for the action plan.'),
+  language: z.enum(['en', 'ar']).optional().default('en').describe('The language for the nudge messages.'),
 });
 export type GenerateNudgesInput = z.infer<typeof GenerateNudgesInputSchema>;
 
@@ -40,13 +41,17 @@ The user has committed to the following actions:
 
 Their chosen timeline for these commitments is: {{{timeline}}}.
 
-Please generate three personalized, friendly, and encouraging follow-up nudge messages for the user, tailored to their specific commitments and the selected timeline. Maintain a positive and supportive tone.
+{{#if (eq language "ar")}}
+Please respond entirely in Arabic (العربية). Generate three personalized, friendly, and encouraging follow-up nudge messages in Arabic, tailored to the user's specific commitments and timeline. Use a positive and supportive tone.
+{{else}}
+Please generate three personalized, friendly, and encouraging follow-up nudge messages in English, tailored to the user's specific commitments and timeline. Use a positive and supportive tone.
+{{/if}}
 
-1.  **Day 1 Nudge**: Create a message for the day after they submit their plan, encouraging them to make a positive start.
-2.  **Day 3 Check-in**: Create a message for three days after submission, checking in on their progress, reminding them of their goals, and offering support.
-3.  **Day 7 Reinforcement**: Create a message for seven days after submission, reinforcing their efforts, celebrating initial steps, and encouraging them to continue working towards their goals.
+1.  **Day 1 Nudge**: A message for the day after they submit their plan, encouraging them to make a positive start.
+2.  **Day 3 Check-in**: A message for three days after submission, checking in on their progress and offering support.
+3.  **Day 7 Reinforcement**: A message for seven days after submission, reinforcing their efforts and encouraging continued progress.
 
-Make sure the output is a JSON object with keys 'day1Nudge', 'day3Nudge', and 'day7Nudge'.`,
+Output a JSON object with keys 'day1Nudge', 'day3Nudge', and 'day7Nudge'.`,
 });
 
 const generatePersonalizedNudgesFlow = ai.defineFlow(

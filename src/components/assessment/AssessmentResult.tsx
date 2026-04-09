@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Trophy, ArrowRight, RefreshCcw } from 'lucide-react';
+import { ArrowRight, RefreshCcw } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/lib/i18n-context';
 
 interface Props {
   score: number;
@@ -15,6 +16,7 @@ interface Props {
 export function AssessmentResult({ score, maxScore, onContinue }: Props) {
   const [animatedScore, setAnimatedScore] = useState(0);
   const percentage = (score / maxScore) * 100;
+  const { t } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,9 +26,9 @@ export function AssessmentResult({ score, maxScore, onContinue }: Props) {
   }, [score]);
 
   const getStatus = () => {
-    if (percentage >= 80) return { label: 'Excellent', color: 'text-primary' };
-    if (percentage >= 60) return { label: 'Good', color: 'text-secondary' };
-    return { label: 'Needs Improvement', color: 'text-orange-500' };
+    if (percentage >= 80) return { label: t.excellent, color: 'text-primary' };
+    if (percentage >= 60) return { label: t.good, color: 'text-secondary' };
+    return { label: t.needsImprovement, color: 'text-orange-500' };
   };
 
   const status = getStatus();
@@ -34,7 +36,6 @@ export function AssessmentResult({ score, maxScore, onContinue }: Props) {
   return (
     <Card className="glass-card overflow-hidden animate-fade-in text-center p-8">
       <div className="mb-8 relative inline-flex items-center justify-center">
-        {/* SVG Circular Progress */}
         <svg className="w-40 h-40 transform -rotate-90">
           <circle
             cx="80"
@@ -60,7 +61,7 @@ export function AssessmentResult({ score, maxScore, onContinue }: Props) {
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-4xl font-extrabold tracking-tighter">{animatedScore}/{maxScore}</span>
-          <span className="text-xs uppercase tracking-widest font-bold text-muted-foreground">Points</span>
+          <span className="text-xs uppercase tracking-widest font-bold text-muted-foreground">{t.points}</span>
         </div>
       </div>
 
@@ -69,27 +70,27 @@ export function AssessmentResult({ score, maxScore, onContinue }: Props) {
           {status.label}!
         </CardTitle>
         <CardDescription className="text-base">
-          You have successfully completed the PathMind assessment. Your commitment to learning is impressive.
+          {t.assessmentCompleted}
         </CardDescription>
       </CardHeader>
 
       <CardContent className="grid grid-cols-2 gap-4 my-4">
         <div className="bg-muted/30 p-4 rounded-2xl flex flex-col items-center">
-          <span className="text-xs text-muted-foreground uppercase font-bold mb-1">Time Spent</span>
+          <span className="text-xs text-muted-foreground uppercase font-bold mb-1">{t.timeSpent}</span>
           <span className="font-bold">12:45 min</span>
         </div>
         <div className="bg-muted/30 p-4 rounded-2xl flex flex-col items-center">
-          <span className="text-xs text-muted-foreground uppercase font-bold mb-1">Accuracy</span>
+          <span className="text-xs text-muted-foreground uppercase font-bold mb-1">{t.accuracy}</span>
           <span className="font-bold">{Math.round(percentage)}%</span>
         </div>
       </CardContent>
 
       <CardFooter className="flex flex-col gap-4">
         <Button size="lg" className="w-full gradient-bg rounded-full py-8 text-lg" onClick={onContinue}>
-          Continue to Action Plan <ArrowRight className="ml-2 w-5 h-5" />
+          {t.continueToActionPlan} <ArrowRight className="ms-2 w-5 h-5" />
         </Button>
         <button className="text-sm font-semibold text-muted-foreground hover:text-primary transition-colors flex items-center justify-center gap-2">
-          <RefreshCcw className="w-4 h-4" /> Retake Assessment
+          <RefreshCcw className="w-4 h-4" /> {t.retakeAssessment}
         </button>
       </CardFooter>
     </Card>

@@ -3,12 +3,14 @@
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, BellRing, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n-context';
 
 interface Props {
   onNext: () => void;
 }
 
 export function SubmissionSuccess({ onNext }: Props) {
+  const { t } = useLanguage();
   return (
     <Card className="glass-card overflow-hidden animate-fade-in text-center p-12">
       <CardContent className="space-y-8">
@@ -22,9 +24,9 @@ export function SubmissionSuccess({ onNext }: Props) {
         </div>
         
         <div className="space-y-3">
-          <h2 className="text-4xl font-black gradient-text">Plan Secured</h2>
+          <h2 className="text-4xl font-black gradient-text">{t.planSecured}</h2>
           <p className="text-lg text-muted-foreground max-w-sm mx-auto">
-            Your professional development roadmap has been saved and shared with your mentors.
+            {t.planSavedMessage}
           </p>
         </div>
 
@@ -33,9 +35,9 @@ export function SubmissionSuccess({ onNext }: Props) {
             <BellRing className="w-5 h-5 text-secondary" />
           </div>
           <div>
-            <h4 className="font-bold text-secondary text-sm">Smart Nudges Enabled</h4>
+            <h4 className="font-bold text-secondary text-sm">{t.smartNudgesEnabled}</h4>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              We'll send you personalized check-ins to help you stick to your commitments. Ready to see what's coming?
+              {t.nudgesMessage}
             </p>
           </div>
         </div>
@@ -43,7 +45,7 @@ export function SubmissionSuccess({ onNext }: Props) {
 
       <CardFooter className="flex justify-center pt-8">
         <Button size="lg" className="rounded-full px-12 py-8 text-lg gradient-bg group shadow-2xl" onClick={onNext}>
-          Preview Smart Reminders <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          {t.previewSmartReminders} <ChevronRight className="ms-2 group-hover:translate-x-1 transition-transform" />
         </Button>
       </CardFooter>
     </Card>

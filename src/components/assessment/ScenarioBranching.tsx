@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { SCENARIO_DATA } from '@/app/lib/assessment-data';
+import { SCENARIO_DATA, tl } from '@/app/lib/assessment-data';
 import { cn } from '@/lib/utils';
 import { Lightbulb, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n-context';
 
 interface Props {
   onComplete: (score: number) => void;
@@ -14,6 +15,7 @@ interface Props {
 export function ScenarioBranching({ onComplete }: Props) {
   const [selection, setSelection] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState(false);
+  const { t, lang } = useLanguage();
 
   const selectedOption = SCENARIO_DATA.options.find(o => o.id === selection);
 
@@ -22,11 +24,11 @@ export function ScenarioBranching({ onComplete }: Props) {
       <CardHeader className="bg-primary/5 border-b">
         <div className="flex items-center gap-2 text-primary font-bold mb-1">
           <Lightbulb className="w-4 h-4" />
-          <span className="text-xs uppercase tracking-widest">Immersive Scenario</span>
+          <span className="text-xs uppercase tracking-widest">{t.immersiveScenario}</span>
         </div>
-        <CardTitle className="text-2xl font-bold">{SCENARIO_DATA.title}</CardTitle>
+        <CardTitle className="text-2xl font-bold">{tl(SCENARIO_DATA.title, lang)}</CardTitle>
         <CardDescription className="text-base text-card-foreground mt-2">
-          {SCENARIO_DATA.description}
+          {tl(SCENARIO_DATA.description, lang)}
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-8 space-y-4">
@@ -50,8 +52,8 @@ export function ScenarioBranching({ onComplete }: Props) {
                   {option.id.toUpperCase()}
                 </div>
                 <div>
-                  <h4 className="font-bold mb-1">{option.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{option.description}</p>
+                  <h4 className="font-bold mb-1">{tl(option.title, lang)}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{tl(option.description, lang)}</p>
                 </div>
               </div>
             </button>
@@ -61,12 +63,12 @@ export function ScenarioBranching({ onComplete }: Props) {
             <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mb-6">
               <CheckCircle2 className="w-8 h-8 text-secondary" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Decision Logged</h3>
+            <h3 className="text-xl font-bold mb-2">{t.decisionLogged}</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {selectedOption?.feedback}
+              {selectedOption ? tl(selectedOption.feedback, lang) : ''}
             </p>
             <Button className="gradient-bg rounded-full px-8 py-6" onClick={() => onComplete(selection === 'a' ? 1 : 0)}>
-              Continue to Results <ArrowRight className="ml-2 h-4 w-4" />
+              {t.continueToResults} <ArrowRight className="ms-2 h-4 w-4" />
             </Button>
           </div>
         )}
@@ -78,7 +80,7 @@ export function ScenarioBranching({ onComplete }: Props) {
             className="rounded-full px-12 py-6 gradient-bg shadow-xl hover:shadow-primary/20 transition-all"
             onClick={() => setConfirmed(true)}
           >
-            Confirm Decision
+            {t.confirmDecision}
           </Button>
         </CardFooter>
       )}

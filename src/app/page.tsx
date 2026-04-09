@@ -8,7 +8,8 @@ import { AssessmentResult } from '@/components/assessment/AssessmentResult';
 import { ActionPlanForm } from '@/components/assessment/ActionPlanForm';
 import { SubmissionSuccess } from '@/components/assessment/SubmissionSuccess';
 import { NudgesPreview } from '@/components/assessment/NudgesPreview';
-import { Progress } from '@/components/ui/progress';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n-context';
 
 type FlowState = 'START' | 'QUESTIONS' | 'SCENARIO' | 'RESULT' | 'ACTION_PLAN' | 'SUCCESS' | 'NUDGES';
 
@@ -16,6 +17,7 @@ export default function PathMindPro() {
   const [currentStep, setCurrentStep] = useState<FlowState>('START');
   const [score, setScore] = useState(0);
   const [planData, setPlanData] = useState<{ commitments: string[], timeline: string } | null>(null);
+  const { t } = useLanguage();
 
   const getProgress = () => {
     switch (currentStep) {
@@ -34,9 +36,12 @@ export default function PathMindPro() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4 md:p-8">
       {/* Header Info */}
       <div className="w-full max-w-3xl mb-8 flex flex-col items-center">
+        <div className="w-full flex justify-end mb-4">
+          <LanguageSwitcher />
+        </div>
         <h1 className="text-3xl font-extrabold tracking-tight mb-2 flex items-center gap-2">
           <span className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white text-sm">P</span>
-          <span className="gradient-text">PathMind Pro</span>
+          <span className="gradient-text">{t.appTitle}</span>
         </h1>
         <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden mt-4">
           <div 
@@ -45,7 +50,7 @@ export default function PathMindPro() {
           />
         </div>
         <p className="text-xs text-muted-foreground mt-2 font-medium uppercase tracking-wider">
-          {getProgress()}% Journey Completed
+          {t.journeyCompleted(getProgress())}
         </p>
       </div>
 
@@ -93,7 +98,7 @@ export default function PathMindPro() {
       </main>
 
       <footer className="mt-12 text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} PathMind Pro. Enterprise Edition.
+        {t.copyright(new Date().getFullYear())}
       </footer>
     </div>
   );
