@@ -2,9 +2,9 @@ export type Lang = 'en' | 'ar';
 
 const en = {
   // Common
-  appTitle: 'PathMind Pro',
+  appTitle: 'Aramco',
   journeyCompleted: (pct: number) => `${pct}% Journey Completed`,
-  copyright: (year: number) => `© ${year} PathMind Pro. Enterprise Edition.`,
+  copyright: (year: number) => `© ${year} Aramco. Enterprise Edition.`,
 
   // AssessmentStart
   finalAssessment: 'Final Assessment',
@@ -34,7 +34,7 @@ const en = {
   good: 'Good',
   needsImprovement: 'Needs Improvement',
   assessmentCompleted:
-    'You have successfully completed the PathMind assessment. Your commitment to learning is impressive.',
+    'You have successfully completed the Aramco assessment. Your commitment to learning is impressive.',
   timeSpent: 'Time Spent',
   accuracy: 'Accuracy',
   continueToActionPlan: 'Continue to Action Plan',
@@ -92,9 +92,9 @@ const en = {
 
 const ar: typeof en = {
   // Common
-  appTitle: 'باث مايند برو',
+  appTitle: 'أرامكو',
   journeyCompleted: (pct: number) => `${pct}% اكتملت الرحلة`,
-  copyright: (year: number) => `© ${year} باث مايند برو. الإصدار المؤسسي.`,
+  copyright: (year: number) => `© ${year} أرامكو. الإصدار المؤسسي.`,
 
   // AssessmentStart
   finalAssessment: 'التقييم النهائي',

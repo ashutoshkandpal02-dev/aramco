@@ -40,7 +40,7 @@ export default function PathMindPro() {
           <LanguageSwitcher />
         </div>
         <h1 className="text-3xl font-extrabold tracking-tight mb-2 flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white text-sm">P</span>
+          <span className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white text-sm">A</span>
           <span className="gradient-text">{t.appTitle}</span>
         </h1>
         <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden mt-4">

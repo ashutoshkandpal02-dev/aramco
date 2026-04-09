@@ -3,8 +3,11 @@ import './globals.css';
 import { LanguageProvider } from '@/lib/i18n-context';
 
 export const metadata: Metadata = {
-  title: 'PathMind Pro | Premium LMS Experience',
+  title: 'Aramco | Premium LMS Experience',
   description: 'Next-generation assessment and action planning module.',
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
