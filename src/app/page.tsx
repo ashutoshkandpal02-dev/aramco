@@ -10,6 +10,7 @@ import { SubmissionSuccess } from '@/components/assessment/SubmissionSuccess';
 import { NudgesPreview } from '@/components/assessment/NudgesPreview';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { useLanguage } from '@/lib/i18n-context';
+import { ASSESSMENT_QUESTIONS } from '@/app/lib/assessment-data';
 
 type FlowState = 'START' | 'QUESTIONS' | 'SCENARIO' | 'RESULT' | 'ACTION_PLAN' | 'SUCCESS' | 'NUDGES';
 
@@ -36,7 +37,7 @@ export default function PathMindPro() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4 md:p-8">
       {/* Header Info */}
       <div className="w-full max-w-3xl mb-8 flex flex-col items-center">
-        <div className="w-full flex justify-end mb-4">
+        <div className="w-full flex justify-end mb-4" dir="ltr">
           <LanguageSwitcher />
         </div>
         <h1 className="text-3xl font-extrabold tracking-tight mb-2 flex items-center gap-2">
@@ -76,7 +77,7 @@ export default function PathMindPro() {
         {currentStep === 'RESULT' && (
           <AssessmentResult 
             score={score} 
-            maxScore={3} 
+            maxScore={ASSESSMENT_QUESTIONS.length} 
             onContinue={() => setCurrentStep('ACTION_PLAN')} 
           />
         )}

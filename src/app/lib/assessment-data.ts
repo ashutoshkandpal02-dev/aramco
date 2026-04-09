@@ -78,6 +78,110 @@ export const ASSESSMENT_QUESTIONS: AssessmentQuestion[] = [
     ],
     correctAnswer: 1,
   },
+  {
+    id: 3,
+    text: {
+      en: 'Which approach best defines effective self-directed learning in a professional environment?',
+      ar: 'أيٌّ من المقاربات التالية يصف بشكل أفضل التعلّم الذاتي الموجَّه في بيئة مهنية؟',
+    },
+    options: [
+      {
+        en: 'Attend formal training only when mandated by your manager.',
+        ar: 'حضور التدريب الرسمي فقط عند إلزامك به من قِبل مديرك.',
+      },
+      {
+        en: 'Set personal learning goals, seek resources proactively, and apply new skills immediately.',
+        ar: 'وضع أهداف تعلّمية شخصية والبحث عن الموارد باستباقية وتطبيق المهارات الجديدة فوراً.',
+      },
+      {
+        en: 'Focus solely on skills directly related to your current tasks.',
+        ar: 'التركيز فقط على المهارات المرتبطة مباشرة بمهامك الحالية.',
+      },
+      {
+        en: 'Wait for your annual appraisal to identify development areas.',
+        ar: 'انتظار تقييمك السنوي لتحديد مجالات التطوير.',
+      },
+    ],
+    correctAnswer: 1,
+  },
+  {
+    id: 4,
+    text: {
+      en: 'A new team member is struggling and falling behind. As a team lead, what is the most effective first step?',
+      ar: 'يعاني عضو جديد في الفريق ويتأخر في إنجاز مهامه. بوصفك قائداً، ما هي الخطوة الأولى الأكثر فعالية؟',
+    },
+    options: [
+      {
+        en: 'Reassign their tasks to more experienced members immediately.',
+        ar: 'إعادة توزيع مهامه على أعضاء أكثر خبرة فوراً.',
+      },
+      {
+        en: 'Schedule a private one-on-one to understand their challenges and co-create a support plan.',
+        ar: 'جدولة لقاء فردي خاص لفهم تحدياته والتعاون في وضع خطة دعم مناسبة.',
+      },
+      {
+        en: 'Wait and observe for another week before considering any intervention.',
+        ar: 'الانتظار والمراقبة لأسبوع آخر قبل التفكير في التدخل.',
+      },
+      {
+        en: 'Report the performance gap directly to HR.',
+        ar: 'الإبلاغ عن فجوة الأداء مباشرةً إلى الموارد البشرية.',
+      },
+    ],
+    correctAnswer: 1,
+  },
+  {
+    id: 5,
+    text: {
+      en: 'Which time management strategy consistently produces the highest productivity ROI?',
+      ar: 'أيٌّ من استراتيجيات إدارة الوقت يُنتج باستمرار أعلى عائد على الإنتاجية المهنية؟',
+    },
+    options: [
+      {
+        en: 'Multitask across several projects to maximise daily output.',
+        ar: 'تعدد المهام عبر عدة مشاريع لزيادة الإنتاج اليومي.',
+      },
+      {
+        en: 'Time-block deep-work sessions around your peak energy hours and batch low-value tasks.',
+        ar: 'تخصيص مقاطع زمنية للعمل العميق في أوقات طاقتك الذروة وتجميع المهام ذات القيمة المنخفضة.',
+      },
+      {
+        en: 'Handle emails and messages first thing every morning before starting work.',
+        ar: 'معالجة الرسائل الإلكترونية أولاً في كل صباح قبل بدء العمل.',
+      },
+      {
+        en: 'Keep a running to-do list and complete items in the order they arrive.',
+        ar: 'الاحتفاظ بقائمة مهام جارية وإنجاز العناصر بالترتيب الذي تصل به.',
+      },
+    ],
+    correctAnswer: 1,
+  },
+  {
+    id: 6,
+    text: {
+      en: 'When building cross-functional collaboration, which practice delivers the most sustainable results?',
+      ar: 'عند بناء تعاون بين الأقسام الوظيفية المختلفة، أيٌّ الممارسات التالية يحقق أكثر النتائج استدامةً؟',
+    },
+    options: [
+      {
+        en: 'Rely exclusively on project management tools to coordinate all communication.',
+        ar: 'الاعتماد حصرياً على أدوات إدارة المشاريع لتنسيق كل التواصل.',
+      },
+      {
+        en: 'Establish shared goals, clear ownership, and regular cross-team rituals for alignment.',
+        ar: 'وضع أهداف مشتركة وتوضيح المسؤوليات وإقامة طقوس منتظمة بين الفرق لضمان التوافق.',
+      },
+      {
+        en: 'Assign a single liaison to relay all information between teams.',
+        ar: 'تعيين منسق واحد لنقل المعلومات بين جميع الفرق.',
+      },
+      {
+        en: 'Schedule quarterly all-hands meetings to address cross-team issues.',
+        ar: 'جدولة اجتماعات ربع سنوية لمعالجة قضايا التعاون بين الفرق.',
+      },
+    ],
+    correctAnswer: 1,
+  },
 ];
 
 export const SCENARIO_DATA: ScenarioDataType = {

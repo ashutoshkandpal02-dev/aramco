@@ -10,10 +10,18 @@ const en = {
   finalAssessment: 'Final Assessment',
   assessmentDescription:
     'Evaluate your learning and apply it in real-world professional scenarios to earn your certification.',
-  levels3: '3 Levels',
+  levels3: '6 Questions',
   interactive: 'Interactive',
   minutes15: '15 Minutes',
   startAssessment: 'Start Assessment',
+  topicsLabel: 'Topics Covered',
+  topicCommunication: 'Communication',
+  topicLeadership: 'Leadership',
+  topicTeamwork: 'Teamwork',
+  topicTime: 'Time Mgmt',
+  topicFeedback: 'Feedback',
+  topicLearning: 'Learning',
+  questionCategory: (cat: string) => cat,
 
   // AssessmentQuestions
   questionOf: (current: number, total: number) => `Question ${current} of ${total}`,
@@ -107,10 +115,18 @@ const ar: typeof en = {
   finalAssessment: 'التقييم النهائي',
   assessmentDescription:
     'قيّم تعلّمك وطبّقه في سيناريوهات مهنية واقعية للحصول على شهادتك.',
-  levels3: '٣ مستويات',
+  levels3: '٦ أسئلة',
   interactive: 'تفاعلي',
   minutes15: '١٥ دقيقة',
   startAssessment: 'بدء التقييم',
+  topicsLabel: 'المواضيع المشمولة',
+  topicCommunication: 'التواصل',
+  topicLeadership: 'القيادة',
+  topicTeamwork: 'العمل الجماعي',
+  topicTime: 'إدارة الوقت',
+  topicFeedback: 'التغذية الراجعة',
+  topicLearning: 'التعلّم',
+  questionCategory: (cat: string) => cat,
 
   // AssessmentQuestions
   questionOf: (current: number, total: number) => `السؤال ${current} من ${total}`,
